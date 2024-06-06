@@ -30,6 +30,9 @@ jobs:
       - name: Compile
         run: npm run build
 
+      - name: Install aws-sdk
+        run: npm install aws-sdk
+
       - name: Pack with node-pre-gyp
         run: |
           npm install -g node-pre-gyp
@@ -52,7 +55,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 18
+          node-version: 20
           registry-url: "https://registry.npmjs.org"
 
       - name: Install dependencies
