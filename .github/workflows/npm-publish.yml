@@ -44,7 +44,6 @@ jobs:
           NODE_PRE_GYP_GITHUB_TOKEN:  ${{ secrets.GITHUB_TOKEN }}
         run: |
           npm run gyp-publish
-          npx node-pre-gyp info
 
   publish:
     runs-on: ubuntu-latest
