@@ -31,7 +31,7 @@ jobs:
       
       - run: npm publish
         env:
-          NODE_AUTH_TOKEN: ${{secrets.NPM_JS_TOKEN}}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_JS_TOKEN }}
       
       - name: Pack with node-pre-gyp
         run: |
