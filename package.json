@@ -1,6 +1,6 @@
 {
   "name": "@triplewhale/node-rdkafka",
-  "version": "4.0.34",
+  "version": "4.0.35",
   "description": "Node.js bindings for librdkafka",
   "librdkafka": "2.4.0",
   "main": "lib/index.js",
@@ -15,7 +15,7 @@
   },
   "binary": {
     "module_name": "node-librdkafka",
-    "module_path": "build/Release/",
+    "module_path": "./build/{configuration}/",
     "package_name": "{module_name}-v{version}-{node_abi}-{platform}-{libc}-{arch}.tar.gz",
     "host": "https://github.com/Triple-Whale/node-rdkafka/releases/download/",
     "remote_path": "v{version}"
