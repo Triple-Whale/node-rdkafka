@@ -31,13 +31,13 @@ jobs:
   
       - name: Verify npm authentication
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_JS_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_JS_TOKEN }}
         run: npm whoami
       
 
       - name: Publish to npm
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_JS_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_JS_TOKEN }}
         run: npm publish
 
       
