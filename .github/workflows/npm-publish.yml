@@ -38,6 +38,7 @@ jobs:
       - name: Upload to GitHub Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NODE_PRE_GYP_GITHUB:  ${{ secrets.GITHUB_TOKEN }}
         run: |
           npm run gyp-publish
           npx node-pre-gyp info
