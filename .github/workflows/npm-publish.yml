@@ -28,10 +28,21 @@ jobs:
 
       - name: Compile
         run: npm run build
+  
+      - name: Configure npm for scoped package
+        run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
+
+      - name: Verify npm authentication
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npm whoami
       
-      - run: npm publish
+
+      - name: Publish to npm
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_JS_TOKEN }}
+        run: npm publish
+
       
       - name: Pack with node-pre-gyp
         run: |
