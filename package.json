@@ -1,6 +1,6 @@
 {
-  "name": "node-rdkafka",
-  "version": "v3.0.1",
+  "name": "@triplewhale/node-rdkafka",
+  "version": "1.0.0",
   "description": "Node.js bindings for librdkafka",
   "librdkafka": "2.3.0",
   "main": "lib/index.js",
@@ -8,8 +8,15 @@
     "configure": "node-gyp configure",
     "build": "node-gyp build",
     "test": "make test",
-    "install": "node-gyp rebuild",
+    "install": "node-pre-gyp install --fallback-to-build",
     "prepack": "node ./ci/prepublish.js"
+  },
+  "binary": {
+    "module_name": "node-librdkafka",
+    "module_path": "./build/{configuration}/",
+    "package_name": "{module_name}-v{version}-{node_abi}-{platform}-{libc}-{arch}.tar.gz",
+    "host": "https://github.com/Triple-Whale/node-rdkafka/releases/download/",
+    "remote_path": "v{version}"
   },
   "keywords": [
     "kafka",
@@ -35,6 +42,7 @@
     "jsdoc": "^4.0.2",
     "jshint": "^2.10.1",
     "mocha": "^10.2.0",
+    "@mapbox/node-pre-gyp": "^1.0.11",
     "node-gyp": "^10.1.0",
     "toolkit-jsdoc": "^1.0.0"
   },
