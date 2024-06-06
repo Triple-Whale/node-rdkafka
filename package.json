@@ -8,6 +8,8 @@
     "configure": "node-gyp configure",
     "build": "node-gyp build",
     "test": "make test",
+    "package": "node-pre-gyp package",
+    "publish": "npm run package && node-pre-gyp-github publish",
     "install": "node-pre-gyp install --fallback-to-build",
     "prepack": "node ./ci/prepublish.js"
   },
@@ -38,11 +40,12 @@
   ],
   "license": "MIT",
   "devDependencies": {
+    "@mapbox/node-pre-gyp": "^1.0.11",
+    "@mathisloge/node-pre-gyp-github": "^1.0.9",
     "bluebird": "^3.5.3",
     "jsdoc": "^4.0.2",
     "jshint": "^2.10.1",
     "mocha": "^10.2.0",
-    "@mapbox/node-pre-gyp": "^1.0.11",
     "node-gyp": "^10.1.0",
     "toolkit-jsdoc": "^1.0.0"
   },
