@@ -1,6 +1,6 @@
 {
   "name": "@triplewhale/node-rdkafka",
-  "version": "4.0.14",
+  "version": "4.0.15",
   "description": "Node.js bindings for librdkafka",
   "librdkafka": "2.4.0",
   "main": "lib/index.js",
@@ -44,6 +44,7 @@
   "devDependencies": {
     "@mapbox/node-pre-gyp": "^1.0.11",
     "@mathisloge/node-pre-gyp-github": "^1.0.9",
+    "aws-sdk": "^2.1636.0",
     "bluebird": "^3.5.3",
     "jsdoc": "^4.0.2",
     "jshint": "^2.10.1",
