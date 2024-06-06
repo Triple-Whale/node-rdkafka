@@ -1,6 +1,6 @@
 {
   "name": "@triplewhale/node-rdkafka",
-  "version": "4.0.18",
+  "version": "4.0.19",
   "description": "Node.js bindings for librdkafka",
   "librdkafka": "2.4.0",
   "main": "lib/index.js",
@@ -9,7 +9,7 @@
     "build": "node-gyp build",
     "test": "make test",
     "package": "node-pre-gyp package",
-    "gyp-publish": "node-pre-gyp publish",
+    "gyp-publish": "node-pre-gyp package publish",
     "install": "node-pre-gyp install --fallback-to-build",
     "prepack": "node ./ci/prepublish.js"
   },
