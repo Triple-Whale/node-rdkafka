@@ -1,8 +1,8 @@
 {
   "name": "@triplewhale/node-rdkafka",
-  "version": "4.0.3",
+  "version": "4.0.4",
   "description": "Node.js bindings for librdkafka",
-  "librdkafka": "2.3.0",
+  "librdkafka": "2.4.0",
   "main": "lib/index.js",
   "scripts": {
     "configure": "node-gyp configure",
