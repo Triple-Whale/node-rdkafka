@@ -1,6 +1,6 @@
 {
   "name": "@triplewhale/node-rdkafka",
-  "version": "4.0.12",
+  "version": "4.0.13",
   "description": "Node.js bindings for librdkafka",
   "librdkafka": "2.4.0",
   "main": "lib/index.js",

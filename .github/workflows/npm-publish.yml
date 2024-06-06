@@ -24,22 +24,12 @@ jobs:
           node-version: ${{ matrix.node-version }}
           registry-url: "https://registry.npmjs.org"
 
-
       - name: Install dependencies
         run: npm install
 
       - name: Compile
         run: npm run build
-  
 
-
-      - name: Publish to npm
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_JS_TOKEN }}
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_JS_TOKEN }}
-        run: npm publish
-
-      
       - name: Pack with node-pre-gyp
         run: |
           npm install -g node-pre-gyp
@@ -52,9 +42,33 @@ jobs:
           node-pre-gyp package publish
           node-pre-gyp info
 
-  create_release:
+  publish:
     runs-on: ubuntu-latest
     needs: build
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          registry-url: "https://registry.npmjs.org"
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Compile
+        run: npm run build
+
+      - name: Publish to npm
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_JS_TOKEN }}
+        run: npm publish
+
+  create_release:
+    runs-on: ubuntu-latest
+    needs: publish
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
