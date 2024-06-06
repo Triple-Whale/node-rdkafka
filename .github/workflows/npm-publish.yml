@@ -28,7 +28,10 @@ jobs:
         run: npm install
 
       - name: Compile
-        run: npm run configure && npm run build
+        run: npm run configure
+
+      - name: Build
+        run: npm run build
 
 
       - name: Pack with node-pre-gyp
