@@ -61,9 +61,6 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Compile
-        run: npm run build
-
       - name: Publish to npm
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_JS_TOKEN }}
