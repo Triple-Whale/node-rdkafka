@@ -29,12 +29,9 @@ jobs:
       - name: Compile
         run: npm run build
   
-      - name: Configure npm for scoped package
-        run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
-
       - name: Verify npm authentication
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_JS_TOKEN }}
         run: npm whoami
       
 
