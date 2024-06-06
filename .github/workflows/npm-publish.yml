@@ -30,20 +30,17 @@ jobs:
       - name: Compile
         run: npm run build
 
-      - name: Install aws-sdk
-        run: npm install aws-sdk
 
       - name: Pack with node-pre-gyp
         run: |
-          npm install -g node-pre-gyp
-          node-pre-gyp package
+          npm run package
 
       - name: Upload to GitHub Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          node-pre-gyp package publish
-          node-pre-gyp info
+          npm run gyp-publish
+          npx node-pre-gyp info
 
   publish:
     runs-on: ubuntu-latest
