@@ -4,7 +4,6 @@
     # may be redefined in command line on configuration stage
     # "BUILD_LIBRDKAFKA%": "<!(echo ${BUILD_LIBRDKAFKA:-1})"
     "BUILD_LIBRDKAFKA%": "<!(node ./util/get-env.js BUILD_LIBRDKAFKA 1)",
-    "CKJS_LINKING%": "<!(node ./util/get-env.js CKJS_LINKING static)",
   },
   "targets": [
     {
@@ -87,36 +86,24 @@
                   ],
                   'conditions': [
                     [
-                      'CKJS_LINKING=="dynamic"',
-                      {
-                        "conditions": [
-                            [
-                                'OS=="mac"',
-                                {
-                                  "libraries": [
-                                    "../build/deps/librdkafka.dylib",
-                                    "../build/deps/librdkafka++.dylib",
-                                    "-Wl,-rpath,'$$ORIGIN/../deps'",
-                                  ],
-                                },
-                                {
-                                    "libraries": [
-                                      "../build/deps/librdkafka.so",
-                                      "../build/deps/librdkafka++.so",
-                                      "-Wl,-rpath,'$$ORIGIN/../deps'",
-                                    ],
-                                },
-                            ]
-                        ]
-                      },
+                      'OS=="linux"',
                       {
                         "libraries": [
-                          "../build/deps/librdkafka-static.a",
-                          "../build/deps/librdkafka++.a",
-                          "-Wl,-rpath,'$$ORIGIN/../deps'",
+                          "../build/deps/librdkafka",
+                          "../build/deps/librdkafka++",
+                          "-Wl,-rpath='$$ORIGIN/../deps'",
                         ],
                       }
                     ],
+                    [
+                      'OS=="mac"',
+                      {
+                        "libraries": [
+                          "../build/deps/librdkafka.dylib",
+                          "../build/deps/librdkafka++.dylib",
+                        ],
+                      }
+                    ]
                   ],
                 },
                 # Else link against globally installed rdkafka and use
