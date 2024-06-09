@@ -1,3 +1,4 @@
+# pylint: disable=locally-disabled, pointless-statement, missing-module-docstring
 {
   "variables": {
     "CKJS_LINKING%": "<!(node ../util/get-env.js CKJS_LINKING static)",

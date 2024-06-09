@@ -1,3 +1,4 @@
+# pylint: disable=locally-disabled, pointless-statement, missing-module-docstring
 {
   "variables": {
     # may be redefined in command line on configuration stage
