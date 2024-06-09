@@ -89,9 +89,9 @@
                       'OS=="linux"',
                       {
                         "libraries": [
-                          "../build/deps/librdkafka",
-                          "../build/deps/librdkafka++",
-                          "-Wl,-rpath='$$ORIGIN/../deps'",
+                          "../build/deps/librdkafka-static.a",
+                          "../build/deps/librdkafka++.a",
+                          "-Wl,-rpath,'$$ORIGIN/../deps'",
                         ],
                       }
                     ],
